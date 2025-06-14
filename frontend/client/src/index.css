@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(245, 100%, 70%);
+  --primary-foreground: hsl(210, 100%, 99%);
+  --secondary: hsl(174, 60%, 56%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(201, 70%, 58%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  --success: hsl(142, 45%, 72%);
+  --warning: hsl(45, 93%, 67%);
+  --bg-soft: hsl(220, 14%, 98%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(245, 100%, 70%);
+  --primary-foreground: hsl(210, 100%, 99%);
+  --secondary: hsl(174, 60%, 56%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(201, 70%, 58%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  --success: hsl(142, 45%, 72%);
+  --warning: hsl(45, 93%, 67%);
+  --bg-soft: hsl(240, 6%, 6%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    background-color: hsl(var(--bg-soft));
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+  
+  .animate-typing {
+    animation: typing 1.5s steps(3, end) infinite;
+  }
+  
+  @keyframes fadeIn {
+    0% { 
+      opacity: 0; 
+      transform: translateY(10px); 
+    }
+    100% { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  @keyframes slideUp {
+    0% { 
+      transform: translateY(20px); 
+      opacity: 0; 
+    }
+    100% { 
+      transform: translateY(0); 
+      opacity: 1; 
+    }
+  }
+  
+  @keyframes typing {
+    0% { content: '.'; }
+    33% { content: '..'; }
+    66% { content: '...'; }
+  }
+}
+
+/* Custom scrollbar for chat messages */
+.chat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Gradient backgrounds for exercise cards */
+.exercise-breathing {
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.1), hsl(var(--accent) / 0.1));
+}
+
+.exercise-breathing:hover {
+  background: linear-gradient(135deg, hsl(var(--secondary) / 0.2), hsl(var(--accent) / 0.2));
+}
+
+.exercise-journaling {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+}
+
+.exercise-journaling:hover {
+  background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.2));
+}
+
+.exercise-grounding {
+  background: linear-gradient(135deg, hsl(var(--success) / 0.1), hsl(var(--accent) / 0.1));
+}
+
+.exercise-grounding:hover {
+  background: linear-gradient(135deg, hsl(var(--success) / 0.2), hsl(var(--accent) / 0.2));
+}
